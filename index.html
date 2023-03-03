@@ -4,48 +4,57 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- fuentes para el icono -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="./assets/css/style.css">
     <title>Encriptador</title>
 </head>
 <body>
 
     <header>
-        
         <img src="./assets/img/Frame 6.png" alt="Logo de Alura" class="logo">
-
     </header>
 
-    <main id="contenedor" class="contenedor">
-
-        <section>
+    <main>
+        
+        <div id="contenedor" class="contenedor">
             
-            <textarea class="text-area" cols="30" rows="10" placeholder="Ingrese Texto Aquí"></textarea>
+            <section class="seccionUno">
+                
+                <textarea class="text-area" cols="30" rows="10" placeholder="Ingrese Texto Aquí"></textarea>
+    
+                <div class="soloLetras">
+                    <p class="informacion"> <i class="fa fa-exclamation-circle"></i> Solo letras minúsculas y sin acentos</p>
+                </div>
+    
+                <div class="botones">
+    
+                    <button id="btnEncriptar" class="btnEncriptar">Encriptar</button>
+                    <button id="btnDesencriptar" class="btnDesencriptar">Desencriptar</button>
+    
+                </div>
+                
+            </section>
+    
+            <section class="seccionDos">
+                
+                <div>
 
-            <div>
-                <h6 class="informacion">Solo letras minúsculas y sin acentos</h6>
-            </div>
+                    <img class="imagenNoMensaje" src="./assets/img/Muñeco.png" alt="persona que se muestra cuando no hay mensajes">
+                    <h3 class="mensajeNoEncontrado">Ningún mensaje fue encontrado</h3>
+                    <p class="parrafoNoMensaje">Ingresa el texto que desees encriptar o desencriptar.</p>
+                    <textarea class="textMensaje" id="textMensaje" cols="20" rows="10"></textarea>
+                    <div class="ocultarBtnCopiar"><button id="btnCopiar" class="btnCopiar">Copiar</button></div>
 
-            <div class="botones">
+                </div>
 
-                <button id="btnEncriptar" class="btnEncriptar" onclick="">Encriptar</button>
-                <button id="btnDesencriptar" class="btnDesencriptar">Desencriptar</button>
+            </section>
 
-            </div>
-            
-        </section>
-
-        <section>
-            
-            <textarea class="mensajeMostrado" cols="20" rows="10"></textarea>
-
-            <div>
-                <button id="btnCopiar" class="btnCopiar">Copiar</button>
-            </div>
-
-        </section>
+        </div>
 
     </main>
 
+    
     <script src="./assets/js/script.js"></script>
 
 </body>
