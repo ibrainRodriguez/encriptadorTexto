@@ -30,8 +30,13 @@ function convertirTextoMinusculas(mensajeEncriptado) {
     return mensajeEncriptado.toLowerCase();
 }
 
+function eliminarAcentos(texto) {
+    return texto.normalize('NFD').replace(/[\u0300-\u036f]/g,"");
+}
+
 function encriptar(mensajeEncriptado) {
 
+    mensajeEncriptado = eliminarAcentos(mensajeEncriptado);
     mensajeEncriptado = convertirTextoMinusculas(mensajeEncriptado);
 
     for (let i = 0; i < matrizCodigo.length; i++) {
@@ -48,6 +53,7 @@ function encriptar(mensajeEncriptado) {
 
 function desencriptar(mensajeDeserncriptado) {
 
+    mensajeDeserncriptado = eliminarAcentos(mensajeDeserncriptado);
     mensajeDeserncriptado = convertirTextoMinusculas(mensajeDeserncriptado);
 
     for (let i = 0; i < matrizCodigo.length; i++) {
@@ -62,21 +68,29 @@ function desencriptar(mensajeDeserncriptado) {
 }
 
 function btnEncriptar() {
-    const textEncriptado = encriptar(textArea.value);
-    if (textEncriptado != "") {
-        textArea.value = "";
+    
+    
+    if (textArea.value != "") {
+        
+        const textEncriptado = encriptar(textArea.value);
         mensajeNoEncontrado.style.display = "none";
         parrafoNoMensaje.style.display = "none";
         imagenNoMensaje.style.display = "none";
         textMensaje.style.display = "block";
         ocultarBtnCopiar.style.display = "block";
         textMensaje.value = textEncriptado;
+        textArea.value = "";
+
     }
+
 }
 
 function btnDesencriptar() {
-    const textDesencriptado = desencriptar(textArea.value);
-    if (textDesencriptado != "") {
+    
+    
+    if (textArea.value != "") {
+
+        const textDesencriptado = desencriptar(textArea.value);
         mensajeNoEncontrado.style.display = "none";
         parrafoNoMensaje.style.display = "none";
         imagenNoMensaje.style.display = "none";
@@ -84,7 +98,9 @@ function btnDesencriptar() {
         ocultarBtnCopiar.style.display = "block";
         textMensaje.value = textDesencriptado;
         textArea.value = "";
+
     }
+
     
 }
 
