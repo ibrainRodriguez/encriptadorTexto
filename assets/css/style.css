@@ -23,6 +23,14 @@ header {
     max-width: 100%;
 }
 
+.logo-github {
+    padding-top: 10px;
+    margin-right: 20px;
+    height: 45px;
+    max-width: 100%;
+    background-color: transparent;
+}
+
 .contenedor {
     display: flex;
     justify-content: space-around;
